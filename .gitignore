@@ -3,6 +3,9 @@
 credentials.json
 token.json
 
+# Arquivo de execução com caminho local real (use executar_robo.example.bat como modelo)
+executar_robo.bat
+
 # Python
 __pycache__/
 *.py[cod]
