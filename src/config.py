@@ -44,7 +44,7 @@ PREFIXO_CSV = _get("PREFIXO_CSV", "RelAtvColetivaMB")
 # ----------------------------------------------------------------------
 # eCIEGES
 # ----------------------------------------------------------------------
-ECIEGES_URL = _get("ECIEGES_URL", "https://ecieges.saude.df.gov.br")
+ECIEGES_URL = _get("ECIEGES_URL", "https://URL_DO_ECIEGES")
 ECIEGES_USER = _get("ECIEGES_USER")
 ECIEGES_PASS = _get("ECIEGES_PASS")
 # Nome do formulário a procurar na tela "Formulário"
