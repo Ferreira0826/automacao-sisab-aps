@@ -26,13 +26,13 @@ def _get_bool(key: str, default: bool = False) -> bool:
 # Pasta onde ficam os CSVs brutos do SISAB (RelAtvColetivaMB XXX26.csv)
 PASTA_CSV_SISAB = _get(
     "PASTA_CSV_SISAB",
-    r"\\SRV-FS\dics\GEPAP\2026\IAF\2026 - Relatórios SISAB - produzido\sisab",
+    r"\\SERVIDOR\caminho\para\relatorios-sisab\sisab",
 )
 
 # Planilha consolidada de destino (a que o eCIEGES importa)
 PLANILHA_CONSOLIDADA = _get(
     "PLANILHA_CONSOLIDADA",
-    r"\\SRV-FS\dics\GEPAP\2024\PAINÉIS\IAF\Práticas_corporais_Atividade_Física_SISAB_atualizado.xlsx",
+    r"\\SERVIDOR\caminho\para\Praticas_corporais_Atividade_Fisica_SISAB_atualizado.xlsx",
 )
 
 # Aba da planilha consolidada que recebe os dados do SISAB
