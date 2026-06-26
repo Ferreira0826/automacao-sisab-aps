@@ -1,7 +1,3 @@
-"""
-Configuração central do Robô SISAB.
-Lê tudo do arquivo .env (na raiz do projeto).
-"""
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -20,9 +16,7 @@ def _get_bool(key: str, default: bool = False) -> bool:
     return v in ("1", "true", "yes", "sim", "on")
 
 
-# ----------------------------------------------------------------------
-# CAMINHOS DE ARQUIVO (rede corporativa SES-DF)
-# ----------------------------------------------------------------------
+
 # Pasta onde ficam os CSVs brutos do SISAB (RelAtvColetivaMB XXX26.csv)
 PASTA_CSV_SISAB = _get(
     "PASTA_CSV_SISAB",
