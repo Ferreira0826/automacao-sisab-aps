@@ -41,6 +41,10 @@ PREFIXO_CSV = _get("PREFIXO_CSV", "RelAtvColetivaMB")
 ECIEGES_URL = _get("ECIEGES_URL", "https://URL_DO_ECIEGES")
 ECIEGES_USER = _get("ECIEGES_USER")
 ECIEGES_PASS = _get("ECIEGES_PASS")
+# true só se o certificado do eCIEGES for inválido (hoje: ERR_CERT_COMMON_NAME_INVALID)
+ECIEGES_IGNORAR_CERT = _get_bool("ECIEGES_IGNORAR_CERT", False)
+# true enquanto o eCIEGES só funcionar via HTTP (senha trafega sem criptografia)
+ECIEGES_PERMITIR_HTTP = _get_bool("ECIEGES_PERMITIR_HTTP", False)
 # Nome do formulário a procurar na tela "Formulário"
 ECIEGES_FORM_NOME = _get("ECIEGES_FORM_NOME", "SISAB")
 # Nome da aba a escolher no diálogo "Selecione a aba da planilha"

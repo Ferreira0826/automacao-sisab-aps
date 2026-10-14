@@ -144,12 +144,15 @@ def enviar(caminho_planilha=None):
         raise ValueError("Credenciais do eCIEGES ausentes no .env (ECIEGES_USER/ECIEGES_PASS).")
     if not Path(caminho_planilha).exists():
         raise FileNotFoundError(f"Planilha nao encontrada para upload: {caminho_planilha}")
+    if not config.ECIEGES_URL.startswith("https://"):
+        if not config.ECIEGES_PERMITIR_HTTP:
+            raise ValueError("ECIEGES_URL não é https:// — upload bloqueado para não expor a senha. "
+                             "Para aceitar o risco, defina ECIEGES_PERMITIR_HTTP=true no .env.")
+        log.warning("ATENÇÃO: login no eCIEGES via HTTP sem criptografia (ECIEGES_PERMITIR_HTTP=true).")
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=config.HEADLESS)
-        # ignore_https_errors: o eCIEGES usa certificado interno que o navegador
-        # rejeita (ERR_CERT_COMMON_NAME_INVALID). Permite acessar mesmo assim.
-        context = browser.new_context(ignore_https_errors=True)
+        context = browser.new_context(ignore_https_errors=config.ECIEGES_IGNORAR_CERT)
         page = context.new_page()
         page.set_default_timeout(config.TIMEOUT_MS)
         try:
